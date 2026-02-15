@@ -1,0 +1,318 @@
+:root {
+  --bg: #f3f7fc;
+  --text: #1b2940;
+  --muted: #6a7b93;
+  --line: #dbe4f1;
+  --panel: rgba(255, 255, 255, 0.78);
+  --panel-strong: rgba(255, 255, 255, 0.9);
+  --accent: #2d6af0;
+  --good: #2f9f58;
+  --warn: #d28a17;
+  --hot: #dc5f5f;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: Inter, system-ui, sans-serif;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(152, 196, 255, 0.45) 0%, transparent 30%),
+    radial-gradient(circle at 90% 6%, rgba(255, 207, 224, 0.42) 0%, transparent 30%),
+    radial-gradient(circle at 52% 95%, rgba(190, 255, 235, 0.4) 0%, transparent 35%),
+    var(--bg);
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect x='4' y='9' width='24' height='14' rx='7' fill='%23f1b35c'/%3E%3Crect x='6' y='12' width='20' height='2' rx='1' fill='%2383552d'/%3E%3Crect x='6' y='16' width='20' height='2' rx='1' fill='%2372a850'/%3E%3Crect x='6' y='20' width='20' height='2' rx='1' fill='%23a9492f'/%3E%3C/svg%3E") 8 8, auto;
+}
+
+.page {
+  width: min(1180px, 100% - 2rem);
+  margin: 1.2rem auto 2.5rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.glass {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 14px 34px rgba(36, 65, 106, 0.08);
+}
+
+.hidden { display: none !important; }
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 0.8rem;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.74rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0.35rem 0 0;
+  font-family: Manrope, Inter, sans-serif;
+  font-size: clamp(1.7rem, 3.8vw, 2.8rem);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  margin: 0 0 0.65rem;
+  font-family: Manrope, Inter, sans-serif;
+  font-size: 1.03rem;
+}
+
+.subtitle,
+.project-note p,
+.hint,
+.status,
+.why-now {
+  margin: 0.45rem 0 0;
+  color: var(--muted);
+  line-height: 1.42;
+  font-size: 0.87rem;
+}
+
+.project-note {
+  border: 1px solid #d9e3f1;
+  border-radius: 12px;
+  background: var(--panel-strong);
+  padding: 0.8rem;
+}
+
+.warroom {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.metric-card {
+  background: var(--panel-strong);
+  border: 1px solid #dde6f3;
+  border-radius: 12px;
+  padding: 0.85rem;
+}
+
+.metric-label {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #667c98;
+}
+
+.score-value {
+  margin: 0.45rem 0 0;
+  font-family: Manrope, Inter, sans-serif;
+  font-size: clamp(2.05rem, 4.8vw, 2.8rem);
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.metric {
+  margin: 0.45rem 0 0;
+  font-family: Manrope, Inter, sans-serif;
+  font-size: clamp(1.35rem, 3.1vw, 1.95rem);
+  font-weight: 700;
+}
+
+.meter {
+  margin-top: 0.5rem;
+  height: 8px;
+  border-radius: 999px;
+  background: #e9eff8;
+  overflow: hidden;
+}
+
+.meter span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #4d94ff, #2d6af0);
+  transition: width 260ms ease;
+}
+
+.error {
+  color: #9d2323;
+  border: 1px solid #efc8c8;
+  border-radius: 11px;
+  background: #fff1f1;
+  padding: 0.7rem 0.85rem;
+}
+
+.zone-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.zone-card {
+  border: 1px solid #dbe6f3;
+  border-radius: 12px;
+  padding: 0.7rem;
+  background: #ffffffd9;
+}
+
+.zone-card.hot {
+  border-color: #f0b8b8;
+  background: #fff3f3;
+}
+
+.zone-value {
+  margin: 0.32rem 0 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: Manrope, Inter, sans-serif;
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.table-wrap { overflow: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.56rem 0.34rem;
+  border-bottom: 1px solid #e2eaf5;
+  font-size: 0.86rem;
+}
+
+th {
+  color: #627791;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+#timeline,
+#signatureChart {
+  width: 100%;
+  height: 220px;
+  border: 1px solid #e3ebf5;
+  border-radius: 10px;
+  background: #ffffffdc;
+}
+
+#signatureChart { height: 240px; }
+
+.backtest-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.55rem;
+}
+
+.backtest-controls label {
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+
+.backtest-controls input {
+  width: 90px;
+  border: 1px solid #d7e2f0;
+  border-radius: 9px;
+  background: #fff;
+  padding: 0.45rem 0.5rem;
+  color: var(--text);
+  cursor: text;
+}
+
+.btn {
+  border: 1px solid #c9d9ef;
+  border-radius: 9px;
+  background: #fff;
+  color: #355988;
+  padding: 0.45rem 0.72rem;
+  font: inherit;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect x='4' y='9' width='24' height='14' rx='7' fill='%23f1b35c'/%3E%3Crect x='6' y='12' width='20' height='2' rx='1' fill='%2383552d'/%3E%3Crect x='6' y='16' width='20' height='2' rx='1' fill='%2372a850'/%3E%3Crect x='6' y='20' width='20' height='2' rx='1' fill='%23a9492f'/%3E%3C/svg%3E") 8 8, pointer;
+}
+
+.btn-primary {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.links ul {
+  margin: 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.links a {
+  color: #2455bf;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 980px) {
+  .hero,
+  .warroom,
+  .zone-grid,
+  .layout-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero > div:first-child,
+  .signature,
+  .links {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 700px) {
+  .page {
+    width: min(1180px, 100% - 1rem);
+  }
+
+  .hero,
+  .zone-grid,
+  .layout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .warroom {
+    display: flex;
+    overflow-x: auto;
+    gap: 0.55rem;
+    scroll-snap-type: x mandatory;
+    position: sticky;
+    top: 0.4rem;
+    z-index: 10;
+    background: linear-gradient(to bottom, rgba(243, 247, 252, 0.96), rgba(243, 247, 252, 0.6));
+    padding: 0.45rem;
+    border: 1px solid #dbe4f1;
+    border-radius: 14px;
+  }
+
+  .metric-card {
+    min-width: 83%;
+    scroll-snap-align: start;
+  }
+}

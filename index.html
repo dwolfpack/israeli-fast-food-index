@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Israeli Fast Food Index</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <section class="hero glass">
+      <div>
+        <p class="eyebrow">Central Tel Aviv Demand Monitor</p>
+        <h1>Israeli Fast Food Index</h1>
+        <p class="subtitle">Detects unusual city activity by measuring fast-food business pressure vs last-week behavior.</p>
+      </div>
+      <div class="project-note">
+        <h2>Project Idea</h2>
+        <p>When counters surge together in unusual patterns, it can indicate external events. The index aggregates business anomalies into one operational score.</p>
+      </div>
+    </section>
+
+    <section class="warroom glass">
+      <article class="metric-card">
+        <p class="metric-label">Event Likelihood</p>
+        <p id="scoreValue" class="score-value">--</p>
+        <p id="scoreStatus" class="status">Collecting first snapshot...</p>
+        <p id="whyNow" class="why-now">Why now: waiting for first signal.</p>
+      </article>
+
+      <article class="metric-card">
+        <p class="metric-label">Confidence</p>
+        <p id="confidenceValue" class="metric">--</p>
+        <div class="meter" aria-label="Confidence meter"><span id="confidenceBar"></span></div>
+        <p id="confidenceReason" class="hint">Awaiting sample quality check.</p>
+      </article>
+
+      <article class="metric-card">
+        <p class="metric-label">Event Archetype</p>
+        <p id="archetypeValue" class="metric">--</p>
+        <p id="archetypeHint" class="hint">Pattern not established yet.</p>
+      </article>
+
+      <article class="metric-card">
+        <p class="metric-label">Source Health</p>
+        <p id="sourceMode" class="metric">--</p>
+        <p id="sourceHealth" class="hint">Awaiting source status.</p>
+      </article>
+    </section>
+
+    <section id="error" class="error hidden"></section>
+
+    <section class="glass zone-section">
+      <h2>Zone Pressure Cards</h2>
+      <div id="zoneCards" class="zone-grid"></div>
+    </section>
+
+    <section class="layout-grid">
+      <article class="glass">
+        <h2>Top Hot Counters</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Business</th>
+                <th>Load</th>
+                <th>Z</th>
+                <th>Signal</th>
+              </tr>
+            </thead>
+            <tbody id="anomalyTable"></tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="glass">
+        <h2>Comparison To Previous Times</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Business</th>
+                <th>Now</th>
+                <th>Vs Prev</th>
+                <th>Vs Week Baseline</th>
+              </tr>
+            </thead>
+            <tbody id="comparisonTable"></tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+
+    <section class="glass signature">
+      <h2>Signature Curve: Now vs Typical Week</h2>
+      <svg id="signatureChart" viewBox="0 0 900 240" preserveAspectRatio="none" role="img" aria-label="Now vs typical week chart"></svg>
+    </section>
+
+    <section class="layout-grid">
+      <article class="glass">
+        <h2>Index Timeline (Last 48 Snapshots)</h2>
+        <svg id="timeline" viewBox="0 0 900 220" preserveAspectRatio="none" role="img" aria-label="Index timeline"></svg>
+      </article>
+
+      <article class="glass">
+        <h2>Backtesting Replay</h2>
+        <div class="backtest-controls">
+          <label for="backtestHours">Lookback (hours)</label>
+          <input id="backtestHours" type="number" min="6" max="336" step="6" value="72">
+          <button id="runBacktestBtn" class="btn">Run Replay</button>
+          <button id="shareBtn" class="btn btn-primary">Export Snapshot Card</button>
+        </div>
+        <p id="backtestSummary" class="hint">No replay yet.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Score</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="backtestTable"></tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+
+    <section class="glass links">
+      <h2>Related Intelligence Sites</h2>
+      <ul>
+        <li><a href="https://besttime.app/" target="_blank" rel="noopener noreferrer">BestTime.app - Foot Traffic Data API</a></li>
+        <li><a href="https://www.tomtom.com/traffic-index/" target="_blank" rel="noopener noreferrer">TomTom Traffic Index</a></li>
+        <li><a href="https://trends.google.com/explore" target="_blank" rel="noopener noreferrer">Google Trends Explore</a></li>
+        <li><a href="https://www.waze.com/live-map" target="_blank" rel="noopener noreferrer">Waze Live Map</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
