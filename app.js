@@ -6,7 +6,7 @@ const AUTO_POLL_MINUTES = 15;
 const MAX_BUSINESSES = 30;
 const SEARCH_RADIUS_METERS = 1400;
 
-
+const GOOGLE_MAPS_API_KEY = '';
 
 const DEMO_BUSINESSES = [
   { place_id: 'demo_1', name: 'Dizengoff Burger', geometry: { location: { lat: 32.0858, lng: 34.7818 } }, rating: 4.2, user_ratings_total: 650 },
