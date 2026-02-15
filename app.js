@@ -7,6 +7,7 @@ const MAX_BUSINESSES = 30;
 const SEARCH_RADIUS_METERS = 1400;
 
 const GOOGLE_MAPS_API_KEY = '';
+const GOOGLE_MAPS_API_KEY_RUNTIME = window.GOOGLE_MAPS_API_KEY || '';
 
 const DEMO_BUSINESSES = [
   { place_id: 'demo_1', name: 'Dizengoff Burger', geometry: { location: { lat: 32.0858, lng: 34.7818 } }, rating: 4.2, user_ratings_total: 650 },
@@ -73,7 +74,7 @@ async function init() {
 }
 
 async function connectPlacesFromConfig() {
-  const key = GOOGLE_MAPS_API_KEY.trim();
+  const key = GOOGLE_MAPS_API_KEY_RUNTIME.trim() || GOOGLE_MAPS_API_KEY.trim();
   if (!key) {
     state.usingDemoFallback = true;
     return;
